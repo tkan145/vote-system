@@ -14,3 +14,20 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/create-vote', function () {
+  return view('create-vote');
+})->name('vote.create');
+
+Route::get('/signin', function () {
+  return view('signin');
+})->name('auth.signin');
+
+Route::get('/register', function () {
+  return view('register');
+})->name('auth.register');
+
+Route::get('/vote', function () {
+  return view('vote');
+})->name('vote.voting');
+

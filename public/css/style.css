@@ -1,22 +1,21 @@
+html,
+body {
+  height: 100%;
+}
 
-// Fonts
-@import url("https://fonts.googleapis.com/css?family=Raleway:300,400,600");
-
-// Variables
-@import "variables";
-
-// Bootstrap
-@import '~bootstrap/scss/bootstrap';
-
-.navbar-laravel {
-  background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+body {
+  /* display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+  align-items: center; */
+  /* padding-top: 40px;
+  padding-bottom: 40px; */
+  background-color: #F4F8F9;
 }
 
 .form-signin {
   width: 100%;
   max-width: 330px;
-
   margin: auto;
 
 }
@@ -57,4 +56,9 @@
   padding: 25px 20px 0px;
   margin: 0 auto;
   text-align: center;
+}
+
+.bd-navbar .navbar-nav .nav-link{
+  padding-right: .5rem;
+  padding-left: .5rem;
 }
