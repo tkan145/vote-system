@@ -1,12 +1,13 @@
 @extends('layouts.dashboard')
 
 @section('content')
-<div class=" text-center">
-  <h2>Create new Vote</h2>
-</div>
+<div class="container">
+  <div class=" text-center">
+    <h2>Create new Vote</h2>
+  </div>
 
   <div class="row">
-    <div class="col bd-card">
+    <div class="col-12 bd-card">
       <form class="needs-validation" action="{{ route('admin.create')}}" method="post" novalidate>
         <div class="form-group">
           <label>Title</label>
@@ -84,4 +85,5 @@
       </form>
     </div>
   </div>
+</div>
 @endsection
