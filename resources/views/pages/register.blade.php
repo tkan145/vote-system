@@ -43,7 +43,7 @@
             <button class="btn btn-primary btn-block" type="submit">Sign up</button>
           </div>
           <div class="col-md-6 text-right">
-            <p class="small">Already have an account <a href="#">Sign in</a></p>
+            <p class="small">Already have an account <a href="{{ route('auth.signin')}}">Sign in</a></p>
           </div>
         </div>
       </form>
