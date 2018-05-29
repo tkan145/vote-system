@@ -1,12 +1,20 @@
 <!doctype html>
 <html lang="{{ app()->getLocale() }}">
-   @include('partials.head')
-    <body>
-        @include('partials.header')
-        <main>
-          <div class="container">
-          @yield('content')
-          </div>
-        </main>
-    </body>
+<head>
+  @include('includes.head')
+</head>
+<body>
+  <header>
+    @include('includes.header')
+  </header>
+  <div class="container">
+    <main>
+      @yield('content')
+    </main>
+
+  </div>
+  <footer class="footer">
+    @include('includes.footer')
+  </footer>
+</body>
 </html>
