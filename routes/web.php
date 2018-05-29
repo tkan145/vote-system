@@ -49,55 +49,30 @@ Route::get('votes/{id}',function($id){
 
 Route::group(['prefix' => 'admin'],function(){
 
-  Route::get('','VoteController@getIndex')->name('admin.index');
-  // Route::get('', function () {
-  //   return view('pages.index');
-  // })->name('admin.index');
+  Route::get('',[
+    'uses'  => 'VoteController@getIndex',
+    'as'    => 'admin.index'
+  ]);
 
-  Route::get('create-vote', function () {
-    return view('pages.create-vote');
-  })->name('admin.create');
+  Route::get('create-vote', [
+    'uses'  => 'VoteController@getAdminCreate',
+    'as'    => 'admin.create'
+  ]);
 
-  Route::post('create-vote',function(\Illuminate\Http\Request $request, \Illuminate\Http\Validation\Factory $validator){
-    $valid = $validator->make($request->all(),[
-      'title' => 'required|min:5',
-    ]);
+  Route::post('create-vote',[
+    'uses'  => 'VoteController@postAdminCreate',
+    'as'    => 'admin.create'
+  ]);
 
-    if($valid->fails()){
-      return redirect()->back()->withErrors($valid);
-    }
+  Route::get('edit/{id}',[
+    'uses'  => 'VoteController@getAdminEdit',
+    'as'    => 'admin.edit'
+  ] );
 
-    return redirect()-route('admin.index')->with('info','Post created, new Title: ' . $request->input('title'));
-  })->name('admin.create');
-
-  Route::get('edit/{id}', function ($id) {
-
-    if($id == 1){
-      $post = [
-        'title' => 'Vote Title 1',
-        'content' => 'this is the options list'
-      ];
-    }else {
-      $post = [
-        'title' => 'Vote Title 2',
-        'content' => 'this is the options list'
-      ];
-    }
-
-    return view('pages.edit-vote',['post' => $post]);
-  })->name('admin.edit');
-
-  Route::post('admin/edit/', function (\Illuminate\Http\Request $request, \Illuminate\Http\Validation\Factory $validator) {
-    $valid = $validator->make($request->all(),[
-      'title' => 'required|min:5',
-    ]);
-
-    if($valid->fails()){
-      return redirect()->back()->withErrors($valid);
-    }
-
-    return redirect()-route('admin.index')->with('info','Post edited, new Title: ' . $request->input('title'));
-  })->name('admin.update');
+  Route::post('admin/edit/', [
+    'uses'  => 'VoteController@postAdminUpdate',
+    'as'    => 'admin.update'
+  ]);
 });
 
 
