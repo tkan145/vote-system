@@ -5,10 +5,10 @@
     @include('includes.admin-header')
     <div class="container-fluid">
       <div class="row flex-xl-nowrap">
-        <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+        <nav class="col-md-3 col-xl-3 d-none d-md-block bg-light sidebar">
           @include('includes.sidebar')
         </nav>
-        <main role="main" class="col12 col-md-9 col-xl-8 py-md-3 pl-md-5 bd-content" role="main">
+        <main role="main" class="col-12 col-md-9 col-xl-9 py-md-3 pl-md-5 bd-content" role="main">
           @yield('content')
         </main>
       </div>
