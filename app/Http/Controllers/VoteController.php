@@ -9,15 +9,13 @@ use App\Vote;
 
 class VoteController extends Controller
 {
-  public function getIndex(Store $session){
-    $vote = new Vote();
-    $votes = $vote->getVotes($session);
+  public function getIndex(){
+    $votes = Vote::all();
     return view('pages.index',['votes' => $votes]);
   }
 
-  public function getVote(Store $session, $id) {
-    $vote = new Vote();
-    $vote = $post->getPost($session, $id);
+  public function getVote($id) {
+    $vote = Vote::find($id);
     return ;
   }
 
@@ -25,21 +23,25 @@ class VoteController extends Controller
     return view('pages.create-vote');
   }
 
-  public function getAdminEdit(Store $session, $id){
-    $vote = new Vote();
-    $vote = $vote->getVote($session,$id);
+  public function getAdminEdit($id){
+    $vote = Vote::find($id);
     return view('pages.edit-vote',['vote' => $vote,'voteId' => $id]);
   }
 
   // Call when 'Create' from submit button pressed
-  public function postAdminCreate(Store $session, Request $request){
+  public function postAdminCreate(Request $request){
     $this->validate($request,[
       'title' => 'required|min:5',
     ]);
 
-    $vote = new Vote();
-    $vote->addVote($session,$request->input('title'), $request->input('content'));
-    return redirect()->route('admin.index')->with('info','Vote created, Title is:' . $request->input('title'));
+    $vote = new Vote([
+      'title'       => $request->input('title'),
+      'description' => $request->input('description'),
+    ]);
+
+    $vote->save();
+    //$vote->addVote($session,$request->input('title'), $request->input('content'));
+    return redirect()->route('admin.index')->with('info','New Vote created, Title is:' . $request->input('title'));
   }
 
   // Call when 'Update' from submit button pressed
@@ -47,8 +49,10 @@ class VoteController extends Controller
     $this->validate($request,[
       'title' => 'required|min:5',
     ]);
-    $vote = new Vote();
-    $vote->editVote($session,$request->input('id'),$request->input('title'), $request->input('content'));
+    $vote = Vote::find($request->input('id'));
+    $vote->title = $request->input('title');
+    $vote->description = $request->input('description');
+    $vote->save();
     return redirect()->route('admin.index')->with('info','Vote edited, Title is:' . $request->input('title'));
   }
 }

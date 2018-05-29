@@ -12,10 +12,19 @@
             <label>Title</label>
             <div class="row">
                 <div class="col-md-8 mb-3">
-                    <input type="text" class="form-control" id="title" name="title" placeholder="" value="{{ $vote['title']}}" required>
+                    <input type="text" class="form-control" id="title" name="title" placeholder="" value="{{ $vote->title}}" required>
                 </div>
                 <div class="col-md-4 mb-3">
                   <button type="button" class="btn btn-outline-primary">Add Description</button>
+                </div>
+              </div>
+          </div>
+
+          <div class="form-group">
+            <label>Description</label>
+            <div class="row">
+                <div class="col-md-8 mb-3">
+                <input type="text" class="form-control" id="title" name="title" placeholder="" value="{{ $vote->description}}" required>
                 </div>
               </div>
           </div>
