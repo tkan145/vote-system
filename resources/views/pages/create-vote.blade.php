@@ -3,7 +3,8 @@
 @section('content')
 <div class=" text-center">
   <h2>Create new Vote</h2>
-  </div>
+</div>
+
   <div class="row">
     <div class="col bd-card">
       <form class="needs-validation" action="{{ route('admin.create')}}" method="post" novalidate>
