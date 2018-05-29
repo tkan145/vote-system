@@ -1,17 +1,17 @@
-@extends('layouts.page')
+@extends('layouts.dashboard')
 
 @section('content')
-<div class="py-5 text-center">
-  <h2>Create new Vote</h2>
-  </div>
-  <div class="row">
-    <div class="col card">
-      <form class="needs-validation" action=""novalidate>
+<div class=" text-center">
+  <h2>Edit</h2>
+</div>
+<div class="row">
+  <div class="col bd-card">
+    <form class="needs-validation" action="{{ route('admin.update')}}" method="post" novalidate>
         <div class="form-group">
           <label>Title</label>
           <div class="row">
               <div class="col-md-8 mb-3">
-                  <input type="text" class="form-control" id="firstName" placeholder="" value="" required>
+                  <input type="text" class="form-control" id="title" name="title" placeholder="" value="{{ $post['title']}}" required>
               </div>
               <div class="col-md-4 mb-3">
                 <button type="button" class="btn btn-outline-primary">Add Description</button>
@@ -76,8 +76,9 @@
           <h4>Upload attachments</h4>
           <input type="file" class="form-control-file" id="exampleFormControlFile1">
         </div>
-
-      </form>
-    </div>
+        {{ csrf_field() }}
+        <button type="submit" class="btn btn-primary">Save</button>
+    </form>
   </div>
+</div>
 @endsection
