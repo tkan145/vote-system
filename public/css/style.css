@@ -1,7 +1,11 @@
-html,
-body {
+html, body{
+  padding: 0;
+  margin: 0;
+}
+html{
   height: 100%;
 }
+body { height: 100vh }
 
 body {
   /* display: -ms-flexbox;
@@ -11,6 +15,20 @@ body {
   /* padding-top: 40px;
   padding-bottom: 40px; */
   background-color: #F4F8F9;
+}
+
+main{
+  min-height: 90%;
+}
+
+.footer{
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  margin-top: 30px;
+  /* height: 40px;
+  line-height: 40px; */
+  color: white;
 }
 
 .form-signin {
@@ -43,7 +61,7 @@ body {
   border-top-right-radius: 0;
 }
 
-.card{
+.bd-card{
   padding: 30px;
   background-color: white;
   border: 1px solid rgba(90,122,190,.08);
