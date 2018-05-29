@@ -2,7 +2,7 @@
 <html lang="{{ app()->getLocale() }}">
   @include('includes.head')
   <body>
-    @include('includes.admin-header')
+    @include('includes.header')
     <div class="container-fluid">
       <div class="row flex-xl-nowrap">
         <nav class="col-md-3 col-xl-3 d-none d-md-block bg-light sidebar">
