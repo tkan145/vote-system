@@ -1,5 +1,9 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-white flex-row flex-md-row shadow bd-navbar">
+  @guest
   <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="{{ url('/') }}" aria-label="PY">Vote System</a>
+  @else
+  <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="{{ url('/admin') }}" aria-label="PY">Vote System</a>
+  @endguest
   <ul class="navbar-nav flex-row ml-md-auto d-md-flex d-none">
     <!-- Authentication Links -->
     @guest
