@@ -11,7 +11,7 @@
           <label>Title</label>
           <div class="row">
               <div class="col-md-8 mb-3">
-                  <input type="text" class="form-control" id="title" name="title" placeholder="" value="{{ $post['title']}}" required>
+                  <input type="text" class="form-control" id="title" name="title" placeholder="" value="{{ $vote['title']}}" required>
               </div>
               <div class="col-md-4 mb-3">
                 <button type="button" class="btn btn-outline-primary">Add Description</button>
@@ -77,6 +77,7 @@
           <input type="file" class="form-control-file" id="exampleFormControlFile1">
         </div>
         {{ csrf_field() }}
+        <input type="hidden" name="id" value="{{ $voteId }}">
         <button type="submit" class="btn btn-primary">Save</button>
     </form>
   </div>

@@ -22,7 +22,7 @@
     <p>{{ $vote['content']}}</p>
   </div>
   <div class="col-md-2">
-    <a class="btn btn-success" href="{{ route('admin.edit',['id' => 1])}}">Edit</a>
+    <a class="btn btn-success" href="{{ route('admin.edit',['id' => array_search($vote,$votes)])}}">Edit</a>
   </div>
 </div>
 
