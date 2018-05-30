@@ -21,8 +21,9 @@
   <div class="col-md-10">
     <p>{{ $vote->description}}</p>
   </div>
-  <div class="col-md-2">
+  <div class="col-md-2 btn-group">
     <a class="btn btn-success" href="{{ route('admin.edit',['id' => $vote->id])}}">Edit</a>
+    <a class="btn btn-danger" href="{{ route('admin.edit',['id' => $vote->id])}}">Delete</a>
   </div>
 </div>
 

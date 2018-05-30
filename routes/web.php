@@ -69,6 +69,11 @@ Route::group(['prefix' => 'admin'],function(){
     'as'    => 'admin.edit'
   ] );
 
+  Route::get('delete/{id}',[
+    'uses'  => 'VoteController@getAdminDelete',
+    'as'    => 'admin.delete'
+  ] );
+
   Route::post('admin/edit/', [
     'uses'  => 'VoteController@postAdminUpdate',
     'as'    => 'admin.update'

@@ -3,14 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Session\Store;
 
 use App\Vote;
 
 class VoteController extends Controller
 {
   public function getIndex(){
-    $votes = Vote::all();
+    $votes = Vote::orderBy('created_at','desc')->get();
     return view('pages.index',['votes' => $votes]);
   }
 
@@ -26,6 +25,12 @@ class VoteController extends Controller
   public function getAdminEdit($id){
     $vote = Vote::find($id);
     return view('pages.edit-vote',['vote' => $vote,'voteId' => $id]);
+  }
+
+  public function getAdminDelete($id){
+    $vote = Vote::find($id);
+    $vote->delete();
+    return redirect()->route('admin.index')->with('info','Vote deleted' );
   }
 
   // Call when 'Create' from submit button pressed
@@ -45,7 +50,7 @@ class VoteController extends Controller
   }
 
   // Call when 'Update' from submit button pressed
-  public function postAdminUpdate(Store $session, Request $request){
+  public function postAdminUpdate( Request $request){
     $this->validate($request,[
       'title' => 'required|min:5',
     ]);
